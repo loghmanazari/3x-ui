@@ -40,16 +40,12 @@ func (j *CheckClientIpJob) Run() {
 	isAccessLogAvailable := j.checkAccessLogAvailable(f2bInstalled)
 
 	if j.hasLimitIp() {
-		if f2bInstalled && isAccessLogAvailable {
+		if isAccessLogAvailable {
 			shouldClearAccessLog = j.processLogFile()
-		} else {
-			if !f2bInstalled {
-				logger.Warning("[iplimit] fail2ban is not installed. IP limiting may not work properly.")
-			}
 		}
 	}
 
-	if shouldClearAccessLog || isAccessLogAvailable && time.Now().Unix()-j.lastClear > 3600 {
+	if shouldClearAccessLog || isAccessLogAvailable && time.Now().Unix()-j.lastClear > 60 {
 		j.clearAccessLog()
 	}
 }
