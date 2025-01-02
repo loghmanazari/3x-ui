@@ -95,7 +95,8 @@ func (j *CheckClientIpJob) hasLimitIp() bool {
 		clients := settings["clients"]
 
 		for _, client := range clients {
-			limitIp := client.LimitIP
+			//limitIp := client.LimitIP
+			limitIp :=10
 			if limitIp > 0 {
 				return true
 			}
@@ -279,8 +280,8 @@ func (j *CheckClientIpJob) updateInboundClientIps(inboundClientIps *model.Inboun
 
 	for _, client := range clients {
 		if client.Email == clientEmail {
-			limitIp := client.LimitIP
-
+			//limitIp := client.LimitIP
+			limitIp :=10
 			if limitIp != 0 {
 				shouldCleanLog = true
 
