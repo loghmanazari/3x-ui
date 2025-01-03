@@ -154,10 +154,10 @@ func (a *InboundController) clearClientIps(c *gin.Context) {
 
 	err := a.inboundService.ClearClientIps(email)
 	if err != nil {
-		jsonMsg(c, "Update", err)
+		jsonMsg(c, "Update2", err)
 		return
 	}
-	jsonMsg(c, "Log Cleared", nil)
+	jsonMsg(c, "Log Cleared2", nil)
 }
 
 func (a *InboundController) addInboundClient(c *gin.Context) {
