@@ -74,8 +74,6 @@ func (a *InboundController) getClientTraffics(c *gin.Context) {
 		jsonMsg(c, "Error getting traffics", err)
 		return
 	}
-	jsonMsg(c, "Errorsdsdfsdf", err)
-	return
 	jsonObj(c, clientTraffics, nil)
 }
 
