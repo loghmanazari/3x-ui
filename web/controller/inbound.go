@@ -140,6 +140,7 @@ func (a *InboundController) getClientIps(c *gin.Context) {
 	email := c.Param("email")
 
 	ips, err := a.inboundService.GetInboundClientIps(email)
+	jsonObj(c, "Noooooo IP Record", nil)
 	if err != nil || ips == "" {
 		jsonObj(c, "No IP Record", nil)
 		return
